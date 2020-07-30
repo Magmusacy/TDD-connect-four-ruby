@@ -1,4 +1,4 @@
-require './connect_four.rb'
+require './lib/connect_four.rb'
 
 describe Cage do
   describe "#insert" do
