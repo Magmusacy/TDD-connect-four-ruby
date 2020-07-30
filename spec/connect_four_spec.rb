@@ -63,11 +63,18 @@ describe Cage do
   end
 
 end
+
 describe Player do
-  describe "#create_player" do
+  describe "#initialize" do
     it "Creates player with it's unique sign" do
-      expect(Player.create_player("Carl Johnson", "⚪").class).to eql(Player)
+      expect(Player.new("Carl Johnson", "⚪").class).to eql(Player)
     end
+  end
+end
+
+describe "#game" do
+  it "Returns winner Player object" do
+    expect(game.class).to eql(Player)
   end
 end
 
