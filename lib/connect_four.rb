@@ -24,16 +24,15 @@ attr_accessor :cage
   end
 
   def check_for_win(sign)
+    diagonal_right_indexes = [0,1,2,3,7,8,9,10,14,15,16,17]
     @cage.each_with_index do |elmnt, idx|
       if elmnt == sign 
         if @cage[idx+1] == sign && @cage[idx+2] == sign && @cage[idx+3] == sign 
           return true
         elsif @cage[idx+7] == sign && @cage[idx+14] == sign && @cage[idx+21] == sign 
           return true
-        elsif @cage[idx+8] == sign && @cage[idx+16] == sign && @cage[idx+24] == sign ||
-              @cage[idx-8] == sign && @cage[idx-16] == sign && @cage[idx-24] == sign ||
-              @cage[idx+6] == sign && @cage[idx+12] == sign && @cage[idx+16] == sign ||
-              @cage[idx-6] == sign && @cage[idx-12] == sign && @cage[idx-16] == sign
+        elsif @cage[idx+8] == sign && @cage[idx+16] == sign && @cage[idx+24] == sign && diagonal_right_indexes.include?(idx) ||
+              @cage[idx+6] == sign && @cage[idx+12] == sign && @cage[idx+18] == sign && idx > 2
           return true
         end 
       end
